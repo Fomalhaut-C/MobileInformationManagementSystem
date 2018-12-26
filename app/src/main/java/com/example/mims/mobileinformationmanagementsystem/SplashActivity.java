@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.mims.mobileinformationmanagementsystem.Login.LoginActivity;
+
 public class SplashActivity extends Activity {
     int SPLASH_DISPLAY_LENGHT = 2000;
 
@@ -15,7 +17,7 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),MobileActivity.class);
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
