@@ -65,8 +65,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
 
-    <RadioButton
-        android:id="@+id/rbtn_login_remember_pass"
+    <TextView
+        android:id="@+id/tv_login_register"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/login_register"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cbox_login_remember_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbox_login_remember_password" />
+
+    <CheckBox
+        android:id="@+id/cbox_login_remember_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -76,18 +88,6 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_login_register"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@+id/et_login_password"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
-
-    <TextView
-        android:id="@+id/tv_login_register"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/login_register"
-        app:layout_constraintBaseline_toBaselineOf="@+id/rbtn_login_remember_pass"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rbtn_login_remember_pass" />
 </android.support.constraint.ConstraintLayout>
