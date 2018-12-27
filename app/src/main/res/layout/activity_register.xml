@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/background"
     tools:context=".Register.RegisterActivity">
 
     <TextView
@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext"
         android:ems="10"
         android:gravity="center"
@@ -32,8 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_register_title"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_register_title" />
 
     <EditText
         android:id="@+id/et_register_user"
@@ -44,12 +44,12 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/register_user"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_register_phoneNum"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/et_register_phoneNum" />
 
     <EditText
         android:id="@+id/et_register_mail"
@@ -71,6 +71,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext"
         android:ems="10"
         android:gravity="center"
@@ -79,8 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_register_mail"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/et_register_mail" />
 
     <EditText
         android:id="@+id/et_register_rePassword"

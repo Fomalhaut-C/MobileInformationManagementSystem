@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/background"
     tools:context=".Login.LoginActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -25,6 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext"
         android:ems="10"
         android:gravity="center"
@@ -33,14 +34,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_title"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
 
     <EditText
         android:id="@+id/et_login_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext"
         android:ems="10"
         android:gravity="center"
@@ -49,8 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_account"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/et_login_account" />
 
     <Button
         android:id="@+id/btn_login_login"
