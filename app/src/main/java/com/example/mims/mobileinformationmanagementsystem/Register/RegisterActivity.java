@@ -42,15 +42,24 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void Register(){
-        SharedPreferences.Editor editor = getSharedPreferences("AccountInfo", MODE_PRIVATE).edit();
-        editor.putLong("phoneNum", Long.parseLong(et_phoneNum.getText().toString()));
-        editor.putString("user", et_user.getText().toString());
-        editor.putString("mail", et_mail.getText().toString());
-        editor.putString("password", et_password.getText().toString());
-        editor.apply();
-        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-        startActivity(intent);
-        finish();
+        SharedPreferences register_sp = getSharedPreferences("AccountInfo",MODE_PRIVATE);
+        if (et_phoneNum.getText().equals(register_sp.getLong("phoneNum",1))){
+            Toast.makeText(getApplicationContext(),"该手机号码已存在，请重新输入！",Toast.LENGTH_SHORT).show();
+        }else if(et_user.getText().equals(register_sp.getString("user",""))){
+            Toast.makeText(getApplicationContext(),"该用户名已存在，请重新输入！",Toast.LENGTH_SHORT).show();
+        }else if(et_user.getText().equals(register_sp.getString("user",""))) {
+            Toast.makeText(getApplicationContext(), "该邮箱已存在，请重新输入！", Toast.LENGTH_SHORT).show();
+        }else {
+            SharedPreferences.Editor editor = getSharedPreferences("AccountInfo", MODE_PRIVATE).edit();
+            editor.putLong("phoneNum", Long.parseLong(et_phoneNum.getText().toString()));
+            editor.putString("user", et_user.getText().toString());
+            editor.putString("mail", et_mail.getText().toString());
+            editor.putString("password", et_password.getText().toString());
+            editor.apply();
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void initView(){
