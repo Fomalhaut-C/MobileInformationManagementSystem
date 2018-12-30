@@ -35,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"两次输入的密码不一致，请重新输入！",Toast.LENGTH_SHORT).show();
                 }else {
                     Register();
-                    Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -43,11 +42,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void Register(){
         SharedPreferences register_sp = getSharedPreferences("AccountInfo",MODE_PRIVATE);
-        if (et_phoneNum.getText().equals(register_sp.getLong("phoneNum",1))){
+        Long phoneNum = register_sp.getLong("phoneNum",1);
+        String user = register_sp.getString("user","");
+        String mail = register_sp.getString("mail","");
+        if (Long.valueOf(et_phoneNum.getText().toString().trim()).equals(phoneNum)){
             Toast.makeText(getApplicationContext(),"该手机号码已存在，请重新输入！",Toast.LENGTH_SHORT).show();
-        }else if(et_user.getText().equals(register_sp.getString("user",""))){
+        }else if(et_user.getText().toString().trim().equals(user)){
             Toast.makeText(getApplicationContext(),"该用户名已存在，请重新输入！",Toast.LENGTH_SHORT).show();
-        }else if(et_user.getText().equals(register_sp.getString("user",""))) {
+        }else if(et_mail.getText().toString().trim().equals(mail)) {
             Toast.makeText(getApplicationContext(), "该邮箱已存在，请重新输入！", Toast.LENGTH_SHORT).show();
         }else {
             SharedPreferences.Editor editor = getSharedPreferences("AccountInfo", MODE_PRIVATE).edit();
@@ -59,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(intent);
             finish();
+            Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
         }
     }
 

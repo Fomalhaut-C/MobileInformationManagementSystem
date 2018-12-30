@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.mims.mobileinformationmanagementsystem.MobileActivity;
@@ -39,9 +39,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String password = remember_sp.getString("password","");
             if (phoneNum != 1){
                 et_account.setText(String.valueOf(phoneNum));
-            }else if (!user.equals("")){
+            }else if (!TextUtils.isEmpty(user)){
                 et_account.setText(user);
-            }else if (!mail.equals("")){
+            }else if (!TextUtils.isEmpty(mail)){
                 et_account.setText(mail);
             }
             et_password.setText(password);
@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String register_password = register_sp.getString("password","");
         String account = et_account.getText().toString().trim();
         String password = et_password.getText().toString().trim();
-        if (account.equals(String.valueOf(phoneNum)) || account.equals(user) || account.equals(mail) && password.equals(register_password)){
+        if (Long.valueOf(account).equals(phoneNum) || account.equals(user) || account.equals(mail) && password.equals(register_password)){
             Intent intent = new Intent(getApplicationContext(),MobileActivity.class);
             startActivity(intent);
             finish();
