@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mims.mobileinformationmanagementsystem.Database.MyDatabaseHelper;
-import com.example.mims.mobileinformationmanagementsystem.MobileActivity;
+import com.example.mims.mobileinformationmanagementsystem.Mobile.MobileActivity;
 import com.example.mims.mobileinformationmanagementsystem.R;
 
 import com.example.mims.mobileinformationmanagementsystem.Register.RegisterActivity;
