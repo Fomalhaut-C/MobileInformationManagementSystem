@@ -6,38 +6,35 @@
     android:background="?attr/colorPrimary">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/nav_head_image"
+        android:id="@+id/tv_nav_header_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/username"
+        android:layout_above="@+id/tv_nav_header_user"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="3dp"
-        android:src="@drawable/default_head_girl"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/default_head_girl" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/tv_nav_header_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/phoneNum"
-        android:text="Tony Green"
+        android:layout_above="@+id/tv_nav_header_phoneNum"
+        android:textColor="#FFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_nav_header_phoneNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_nav_header_mail"
         android:textColor="#FFF"
         android:textSize="14sp"/>
 
     <TextView
-        android:id="@+id/phoneNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mail"
-        android:text="1111111111"
-        android:textColor="#FFF"
-        android:textSize="14sp"/>
-
-    <TextView
-        android:id="@+id/mail"
+        android:id="@+id/tv_nav_header_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="tonygreendev@gmail.com"
         android:textColor="#FFF"
         android:textSize="14sp"/>
 

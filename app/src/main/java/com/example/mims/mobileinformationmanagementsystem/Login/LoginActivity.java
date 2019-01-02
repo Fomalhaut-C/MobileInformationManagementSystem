@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = et_password.getText().toString().trim();
         if (Query(account,password) > 0){
             Intent intent = new Intent(getApplicationContext(),MobileActivity.class);
+            intent.putExtra("account",account);
             startActivity(intent);
             finish();
         }else {
