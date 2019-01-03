@@ -1,7 +1,6 @@
 package com.example.mims.mobileinformationmanagementsystem.Database;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
@@ -14,7 +13,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String account = "create table information(phoneNum integer unique,user varchar(20) unique,mail varchar(20) unique,password varchar(20))";
+        String account = "create table information(id integer primary key autoincrement,phoneNum integer unique,user varchar(20) unique,mail varchar(20) unique,password varchar(20))";
         db.execSQL(account);
     }
 

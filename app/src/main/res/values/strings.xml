@@ -20,5 +20,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="nav_brand_plus">添加品牌</string>
+    <string name="nav_brand_query">查询品牌</string>
+    <string name="nav_brand_alter">修改品牌</string>
+    <string name="nav_brand_delete">删除品牌</string>
     <string name="nav_change_head">更换头像</string>
+    <string name="nav_change_user">切换用户</string>
 </resources>

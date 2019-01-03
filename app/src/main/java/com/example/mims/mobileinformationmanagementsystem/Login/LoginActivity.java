@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void Login(){
         String account = et_account.getText().toString().trim();
         String password = et_password.getText().toString().trim();
-        if (Query(account,password) > 0){
+        if (QueryAccount(account,password) > 0){
             Intent intent = new Intent(getApplicationContext(),MobileActivity.class);
             intent.putExtra("account",account);
             startActivity(intent);
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     //查询帐号和密码是否匹配已经注册的帐号
-    public int Query(String account,String password){
+    public int QueryAccount(String account,String password){
         int result = 0;
         MyDatabaseHelper databaseHelp = new MyDatabaseHelper(getApplicationContext(), "Account.db", null, 1);
         SQLiteDatabase database = databaseHelp.getWritableDatabase();
