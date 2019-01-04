@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Mobile.MobileActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Mobile.MobileActivity"
+                  android:theme="@style/MobileActivityTheme"/>
+        <activity android:name=".Login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +21,10 @@
         </activity>
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Register.RegisterActivity" />
+        <activity android:name=".Management.PlusActivity" />
+        <activity android:name=".Management.QueryActivity" />
+        <activity android:name=".Management.UpdateActivity" />
+        <activity android:name=".Management.DeleteActivity"></activity>
     </application>
 
 </manifest>

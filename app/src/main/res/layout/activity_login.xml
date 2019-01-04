@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Login.LoginActivity"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/tv_login_title"
@@ -30,7 +31,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/login_account"
-        android:inputType="textEmailAddress|textPersonName|phone"
+        android:inputType="text|textEmailAddress|phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +47,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/login_password"
-        android:inputType="textVisiblePassword"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

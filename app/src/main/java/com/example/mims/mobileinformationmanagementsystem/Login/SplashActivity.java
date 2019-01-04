@@ -1,11 +1,11 @@
-package com.example.mims.mobileinformationmanagementsystem;
+package com.example.mims.mobileinformationmanagementsystem.Login;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.mims.mobileinformationmanagementsystem.Login.LoginActivity;
+import com.example.mims.mobileinformationmanagementsystem.R;
 
 public class SplashActivity extends Activity {
     int SPLASH_DISPLAY_LENGHT = 2000;

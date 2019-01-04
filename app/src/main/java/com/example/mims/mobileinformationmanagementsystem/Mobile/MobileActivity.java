@@ -17,7 +17,12 @@ import android.widget.TextView;
 
 import com.example.mims.mobileinformationmanagementsystem.Database.MyDatabaseHelper;
 import com.example.mims.mobileinformationmanagementsystem.Login.LoginActivity;
+import com.example.mims.mobileinformationmanagementsystem.Management.DeleteActivity;
+import com.example.mims.mobileinformationmanagementsystem.Management.PlusActivity;
+import com.example.mims.mobileinformationmanagementsystem.Management.QueryActivity;
+import com.example.mims.mobileinformationmanagementsystem.Management.UpdateActivity;
 import com.example.mims.mobileinformationmanagementsystem.R;
+
 
 public class MobileActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -40,23 +45,35 @@ public class MobileActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     //添加
                     case R.id.nav_brand_plus:
+                        Intent intent_plus = new Intent(getApplicationContext(),PlusActivity.class);
+                        startActivity(intent_plus);
+                        finish();
                         break;
                     //查询
                     case R.id.nav_brand_query:
+                        Intent intent_query = new Intent(getApplicationContext(),QueryActivity.class);
+                        startActivity(intent_query);
+                        finish();
                         break;
                     //修改
                     case R.id.nav_brand_update:
+                        Intent intent_update = new Intent(getApplicationContext(),UpdateActivity.class);
+                        startActivity(intent_update);
+                        finish();
                         break;
                     //删除
                     case R.id.nav_brand_delete:
+                        Intent intent_delete = new Intent(getApplicationContext(),DeleteActivity.class);
+                        startActivity(intent_delete);
+                        finish();
                         break;
                     //更换头像
                     case R.id.nav_change_header:
                         break;
                     //切换用户
                     case R.id.nav_change_user:
-                        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(intent);
+                        Intent intent_change = new Intent(getApplicationContext(),LoginActivity.class);
+                        startActivity(intent_change);
                         finish();
                         break;
                     default:

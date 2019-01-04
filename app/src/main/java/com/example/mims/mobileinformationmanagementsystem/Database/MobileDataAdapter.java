@@ -4,22 +4,26 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.example.mims.mobileinformationmanagementsystem.Mobile.Mobile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MobileDataAdapter {
-    private Context context = null;
+    private Context context;
     private SQLiteDatabase database = null;
 
     public MobileDataAdapter(Context context) {
         this.context = context;
     }
 
-    public void OpenDB(){
+    private void OpenDB(){
         MobileDatabaseHelper DatabaseHelper = new MobileDatabaseHelper(context,"Mobile.db",null,1);
         database = DatabaseHelper.getWritableDatabase();
     }
 
-    public void closeDB(){
+    private void closeDB(){
         if (database.isOpen()){
             database.close();
         }
@@ -27,23 +31,25 @@ public class MobileDataAdapter {
     }
 
     //添加
-    public void insert(){
+    public Long insert(Mobile mobile){
         OpenDB();
         ContentValues values = new ContentValues();
-//        values.put("Name",);
-//        values.put("Time",);
-//        values.put("Country",);
-//        values.put("CEO",);
-//        values.put("Introduce",);
-//        values.put("Image",);
-//        database.insert(values);
+        values.put("Name",mobile.getName());
+        values.put("Time",mobile.getTime());
+        values.put("Country",mobile.getCountry());
+        values.put("CEO",mobile.getCeo());
+        values.put("Introduce",mobile.getIntroduce());
+        values.put("Image",mobile.getImage());
+        Long result = database.insert("mobile",null,values);
         closeDB();
+        return result;
     }
 
     //查询
-    public void query(){
+    public List<Mobile> query(String query_information){
+        List<Mobile> list = new ArrayList<>();
         OpenDB();
-        Cursor cursor = database.query("mobile",new String[]{"Name","Time","Country","CEO","Introduce"},"Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{},null,null,null);
+        Cursor cursor = database.query("mobile",new String[]{"Name","Time","Country","CEO","Introduce"},"Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{query_information},null,null,null);
         if (cursor.getCount() > 0){
             if (cursor.moveToFirst()){
                 do {
@@ -52,25 +58,41 @@ public class MobileDataAdapter {
                     String country = cursor.getString(cursor.getColumnIndex("Country"));
                     String CEO = cursor.getString(cursor.getColumnIndex("CEO"));
                     String introduce = cursor.getString(cursor.getColumnIndex("Introduce"));
-                    String image = cursor.getString(cursor.getColumnIndex("Image"));
+                    //String image = cursor.getString(cursor.getColumnIndex("Image"));
+                    Mobile mobile = new Mobile();
+                    mobile.setName(name);
+                    mobile.setTime(time);
+                    mobile.setCountry(country);
+                    mobile.setCeo(CEO);
+                    mobile.setIntroduce(introduce);
+                    //mobile.setImage(image);
+                    list.add(mobile);
                 }while (cursor.moveToNext());
             }
         }
+        cursor.close();
         closeDB();
+        return list;
     }
 
     //修改
-    public void update(){
+    public int update(Mobile mobile){
         OpenDB();
         ContentValues values = new ContentValues();
-        database.update("mobile",values,"Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{});
+        values.put("Time",mobile.getTime());
+        values.put("Country",mobile.getCountry());
+        values.put("CEO",mobile.getCeo());
+        values.put("Introduce",mobile.getIntroduce());
+        int result = database.update("mobile",values,"Name = ?",new String[]{mobile.getName()});
         closeDB();
+        return result;
     }
 
     //删除
-    public void delete(){
+    public int delete(String delete_information){
         OpenDB();
-        database.delete("mobile","Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{});
+        int result = database.delete("mobile","Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{delete_information});
         closeDB();
+        return result;
     }
 }

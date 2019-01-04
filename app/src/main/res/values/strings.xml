@@ -26,4 +26,18 @@
     <string name="nav_brand_delete">删除品牌</string>
     <string name="nav_change_head">更换头像</string>
     <string name="nav_change_user">切换用户</string>
+    <string name="delete_hint">输入你需要删除的品牌信息</string>
+    <string name="update_name_hint">输入你要修改的品牌</string>
+    <string name="update_time_hint">输入你重新修改的品牌建立时间</string>
+    <string name="update_country_hint">输入你重新修改的品牌所属国家</string>
+    <string name="update_ceo_hint">输入你重新修改的品牌总裁</string>
+    <string name="update_introduce_hint">输入你重新修改的品牌简介</string>
+    <string name="btn_update_update">修改</string>
+    <string name="plus_name_hint">输入名称</string>
+    <string name="plus_time_hint">输入建立时间</string>
+    <string name="plus_country_hint">输入所属国家</string>
+    <string name="plus_ceo_hint">输入总裁</string>
+    <string name="plus_introduce_hint">输入品牌简介</string>
+    <string name="et_query_hint">输入你要查询的信息</string>
+    <string name="btn_query_query">查询</string>
 </resources>
