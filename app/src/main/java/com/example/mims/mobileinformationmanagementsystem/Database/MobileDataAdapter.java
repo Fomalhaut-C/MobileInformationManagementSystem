@@ -50,7 +50,7 @@ public class MobileDataAdapter {
     public List<Mobile> query(String query_information){
         List<Mobile> list = new ArrayList<>();
         OpenDB();
-        Cursor cursor = database.query("mobile",new String[]{"Name","Time","Country","CEO","Introduce"},"Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{query_information},null,null,null);
+        Cursor cursor = database.query("mobile",new String[]{"Name","Time","Country","CEO","Introduce"},"Name = ? or Time = ? or Country = ? or CEO = ? or Introduce = ?",new String[]{query_information,query_information,query_information,query_information,query_information},null,null,null);
         if (cursor.getCount() > 0){
             if (cursor.moveToFirst()){
                 do {

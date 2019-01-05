@@ -161,7 +161,7 @@ public class MobileActivity extends AppCompatActivity {
     public void QueryAccount(String login_account){
         MyDatabaseHelper databaseHelp = new MyDatabaseHelper(getApplicationContext(), "Account.db", null, 1);
         SQLiteDatabase database = databaseHelp.getWritableDatabase();
-        Cursor cursor = database.query("information",new String[]{"phoneNum","user","mail"} ,"phoneNum = ? or user = ? or mail = ?",new String[]{login_account},null,null,null);
+        Cursor cursor = database.query("information",new String[]{"phoneNum","user","mail"} ,"phoneNum = ? or user = ? or mail = ?",new String[]{login_account,login_account,login_account},null,null,null);
         if (cursor.getCount() > 0){
             if (cursor.moveToFirst()){
                 do {
