@@ -25,8 +25,8 @@ public class QueryActivity extends AppCompatActivity {
         final TextView tv_time = findViewById(R.id.tv_query_time);
         final TextView tv_country = findViewById(R.id.tv_query_country);
         final TextView tv_ceo = findViewById(R.id.tv_query_ceo);
-        final TextView tv_introduce = findViewById(R.id.tv_query_introduce);
         final EditText et_query = findViewById(R.id.et_query_query);
+        final EditText et_introduce = findViewById(R.id.et_query_introduce);
         findViewById(R.id.btn_query_query).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,11 +39,11 @@ public class QueryActivity extends AppCompatActivity {
                 }else {
                     while (iterator.hasNext()){
                         Mobile mobile = iterator.next();
-                        tv_name.append("名称：" + mobile.getName());
-                        tv_time.append("建立时间：" + mobile.getTime());
-                        tv_country.append("所属国家：" + mobile.getCountry());
-                        tv_ceo.append("总裁：" + mobile.getCeo());
-                        tv_introduce.append("简介：" + mobile.getIntroduce());
+                        tv_name.setText("品牌名称：" + mobile.getName());
+                        tv_time.setText("建立时间：" + mobile.getTime());
+                        tv_country.setText("所属国家：" + mobile.getCountry());
+                        tv_ceo.setText("总裁：" + mobile.getCeo());
+                        et_introduce.setText("品牌简介：" + mobile.getIntroduce());
                     }
                 }
             }
