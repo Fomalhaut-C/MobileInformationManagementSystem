@@ -30,7 +30,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/login_account"
-        android:inputType="text|textEmailAddress|phone"
+        android:inputType="text|textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
