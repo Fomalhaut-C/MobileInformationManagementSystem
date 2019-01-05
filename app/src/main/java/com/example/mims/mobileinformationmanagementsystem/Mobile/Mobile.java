@@ -8,6 +8,15 @@ public class Mobile {
     private String introduce;
     private String image;
 
+
+    public Mobile() {
+    }
+
+    public Mobile(String name, String image) {
+        this.name = name;
+        this.image = image;
+    }
+
     public String getName() {
         return name;
     }

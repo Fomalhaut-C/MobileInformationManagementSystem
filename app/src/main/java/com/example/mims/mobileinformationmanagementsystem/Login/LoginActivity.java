@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mims.mobileinformationmanagementsystem.Database.MobileDatabaseHelper;
 import com.example.mims.mobileinformationmanagementsystem.Database.MyDatabaseHelper;
 import com.example.mims.mobileinformationmanagementsystem.Mobile.MobileActivity;
 import com.example.mims.mobileinformationmanagementsystem.R;

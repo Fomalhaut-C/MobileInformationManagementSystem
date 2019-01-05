@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Login.LoginActivity"
-    tools:layout_editor_absoluteY="81dp"
-    android:fitsSystemWindows="true">
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/tv_login_title"

@@ -8,13 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.mims.mobileinformationmanagementsystem.Database.MobileDataAdapter;
 import com.example.mims.mobileinformationmanagementsystem.Database.MyDatabaseHelper;
 import com.example.mims.mobileinformationmanagementsystem.Login.LoginActivity;
 import com.example.mims.mobileinformationmanagementsystem.Management.DeleteActivity;
@@ -23,12 +27,18 @@ import com.example.mims.mobileinformationmanagementsystem.Management.QueryActivi
 import com.example.mims.mobileinformationmanagementsystem.Management.UpdateActivity;
 import com.example.mims.mobileinformationmanagementsystem.R;
 
+import java.util.List;
+
 
 public class MobileActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Long phoneNum;
     private String user,mail;
+    private MobileDataAdapter data_adapter;
+    private MobileAdapter adapter;
+    private SwipeRefreshLayout swipeRefresh;
+    private List<Mobile> mobileList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +48,23 @@ public class MobileActivity extends AppCompatActivity {
         QueryAccount(login_account);
         initView();
         initNavigationView();
-        navigationView.setCheckedItem(R.id.nav_change_header);
+        //调用RecyclerView
+        data_adapter = new MobileDataAdapter(getApplicationContext());
+        mobileList = data_adapter.queryMobile();
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_mobile);
+        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new MobileAdapter(mobileList);
+        recyclerView.setAdapter(adapter);
+        //设置下拉刷新监听器
+        swipeRefresh = findViewById(R.id.swipe_refresh_mobile);
+        swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshMobile();
+            }
+        });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -47,28 +73,21 @@ public class MobileActivity extends AppCompatActivity {
                     case R.id.nav_brand_plus:
                         Intent intent_plus = new Intent(getApplicationContext(),PlusActivity.class);
                         startActivity(intent_plus);
-                        finish();
                         break;
                     //查询
                     case R.id.nav_brand_query:
                         Intent intent_query = new Intent(getApplicationContext(),QueryActivity.class);
                         startActivity(intent_query);
-                        finish();
-                        break;
+                    break;
                     //修改
                     case R.id.nav_brand_update:
                         Intent intent_update = new Intent(getApplicationContext(),UpdateActivity.class);
                         startActivity(intent_update);
-                        finish();
                         break;
                     //删除
                     case R.id.nav_brand_delete:
                         Intent intent_delete = new Intent(getApplicationContext(),DeleteActivity.class);
                         startActivity(intent_delete);
-                        finish();
-                        break;
-                    //更换头像
-                    case R.id.nav_change_header:
                         break;
                     //切换用户
                     case R.id.nav_change_user:
@@ -93,6 +112,29 @@ public class MobileActivity extends AppCompatActivity {
             default:
         }
         return true;
+    }
+
+    //实现下拉刷新
+    private void refreshMobile(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mobileList.clear();
+                        mobileList.addAll(data_adapter.queryMobile());
+                        adapter.notifyDataSetChanged();
+                        swipeRefresh.setRefreshing(false);
+                    }
+                });
+            }
+        }).start();
     }
 
     public void initView(){
@@ -132,4 +174,3 @@ public class MobileActivity extends AppCompatActivity {
         }
     }
 }
-

@@ -38,6 +38,8 @@
     <string name="plus_country_hint">输入所属国家</string>
     <string name="plus_ceo_hint">输入总裁</string>
     <string name="plus_introduce_hint">输入品牌简介</string>
+    <string name="btn_plus_photo">选取图片</string>
+    <string name="btn_plus_plus">添加</string>
     <string name="et_query_hint">输入你要查询的信息</string>
     <string name="btn_query_query">查询</string>
 </resources>

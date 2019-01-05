@@ -2,9 +2,11 @@ package com.example.mims.mobileinformationmanagementsystem.Management;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mims.mobileinformationmanagementsystem.Database.MobileDataAdapter;
 import com.example.mims.mobileinformationmanagementsystem.Mobile.Mobile;
@@ -32,13 +34,17 @@ public class QueryActivity extends AppCompatActivity {
                 MobileDataAdapter adapter = new MobileDataAdapter(getApplicationContext());
                 List<Mobile> list = adapter.query(query_information);
                 Iterator<Mobile> iterator = list.iterator();
-                while (iterator.hasNext()){
-                    Mobile mobile = iterator.next();
-                    tv_name.append("名称：" + mobile.getName());
-                    tv_time.append("建立时间：" + mobile.getTime());
-                    tv_country.append("所属国家：" + mobile.getCountry());
-                    tv_ceo.append("总裁：" + mobile.getCeo());
-                    tv_introduce.append("简介：" + mobile.getIntroduce());
+                if (TextUtils.isEmpty(query_information)){
+                    Toast.makeText(getApplicationContext(),"文本框不可以留空，请重新检查,认真填写！",Toast.LENGTH_SHORT).show();
+                }else {
+                    while (iterator.hasNext()){
+                        Mobile mobile = iterator.next();
+                        tv_name.append("名称：" + mobile.getName());
+                        tv_time.append("建立时间：" + mobile.getTime());
+                        tv_country.append("所属国家：" + mobile.getCountry());
+                        tv_ceo.append("总裁：" + mobile.getCeo());
+                        tv_introduce.append("简介：" + mobile.getIntroduce());
+                    }
                 }
             }
         });

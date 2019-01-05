@@ -4,32 +4,27 @@
 
         <item
             android:id="@+id/nav_brand_plus"
-            android:icon="@drawable/nav_head"
-            android:title="@string/nav_brand_plus"/>
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="@string/nav_brand_plus" />
 
         <item
             android:id="@+id/nav_brand_query"
-            android:icon="@drawable/nav_head"
-            android:title="@string/nav_brand_query"/>
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="@string/nav_brand_query" />
 
         <item
             android:id="@+id/nav_brand_update"
-            android:icon="@drawable/nav_head"
+            android:icon="@android:drawable/ic_menu_edit"
             android:title="@string/nav_brand_alter" />
 
         <item
             android:id="@+id/nav_brand_delete"
-            android:icon="@drawable/nav_head"
-            android:title="@string/nav_brand_delete"/>
+            android:icon="@android:drawable/ic_delete"
+            android:title="@string/nav_brand_delete" />
 
         <item
             android:id="@+id/nav_change_user"
-            android:icon="@drawable/nav_head"
+            android:icon="?attr/actionModeCloseDrawable"
             android:title="@string/nav_change_user" />
-
-        <item
-            android:id="@+id/nav_change_header"
-            android:icon="@drawable/nav_head"
-            android:title="@string/nav_change_head" />
     </group>
 </menu>

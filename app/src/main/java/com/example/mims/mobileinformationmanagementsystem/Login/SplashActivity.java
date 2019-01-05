@@ -8,7 +8,7 @@ import android.os.Handler;
 import com.example.mims.mobileinformationmanagementsystem.R;
 
 public class SplashActivity extends Activity {
-    int SPLASH_DISPLAY_LENGHT = 2000;
+    int SPLASH_DISPLAY_LENGHT = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
